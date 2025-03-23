@@ -7,6 +7,12 @@ const connectDB = require("./src/config/db");
 const app = express();
 
 // Middleware to handle CORS and JSON request body
+const corsConfig={
+  origin:"*",
+  credentials:true,
+  methods:["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+};
+app.options("*",cors(corsConfig));
 app.use(cors());
 app.use(express.json());
 
